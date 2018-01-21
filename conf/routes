@@ -6,7 +6,7 @@
 GET        /             controllers.Assets.at(path="/public", file="index.html")
 
 # An example route
-GET        /summary      controllers.HomeController.appSummary()
+GET        /v1/summary      controllers.HomeController.appSummary()
 
 # Map static resources from the /public folder to the file resource paths
 GET        /*file        controllers.Assets.at(path="/public", file)

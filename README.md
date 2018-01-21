@@ -2,27 +2,27 @@
 
 # Java Play React Seed
 
-> java-play-react-seed project illustrates how Play Framework can be used to develop backend/services along with [React](https://reactjs.org/) to develop the front-end/ui.
+> java-play-vue-seed project illustrates how Play Framework can be used to develop backend/services along with [vue](https://vuejs.org/) to develop the front-end/ui.
 
 Read more @ http://bit.ly/2A1AzEq
 
 ## Used Versions
 
 * [Play Framework: 2.6.7](https://www.playframework.com/documentation/2.6.x/Home)
-* [React: 16.2.0](https://reactjs.org/)
-* [Create React App: 1.0.17](https://github.com/facebookincubator/create-react-app)
+* [Vue: 2.3.3](https://vuejs.org)
 
 ## How to use it? 
 
 ### Prerequisites
 
 * This assumes that you have [npm](https://npmjs.org/) installed.
+* Must have [sbt](http://www.scala-sbt.org/1.0/docs/Setup.html) installed.
 
 ### Let's get started,
 
 * Clone the application and open application as a sbt project.
 
-* This application is not using any of the java play views and all the views are served by the [React](https://reactjs.org/) code base which is inside the `ui` folder.
+* This application is not using any of the java play views and all the views are served by the [Vue](https://vuejs.org/) code base which is inside the `ui` folder.
 
 * Used any of the sbt commands listed in the below according to the requirement which are working fine with this application.(To see more details of [sbt](http://www.scala-sbt.org/))
 
@@ -58,16 +58,21 @@ Read more @ http://bit.ly/2A1AzEq
 │     ├── /universal/               # Application packaging
 │     └── /web/                     # Compiled web assets
 ├── /test/                          # Contains unit tests for java play sources
-├── /ui/                            # React front end sources
-│     ├── /public/                  # Contains the index.html file
-│     ├── /node_modules/            # 3rd-party frontend libraries and utilities
-│     ├── /src/                     # The frontend source code (modules, componensts, models, directives, services etc.) of the application
+├── /ui/                            # Vue front end sources
+│     ├── /build/                  # Webpack configs and dev server
+│     ├── /config/                 # Webpack configuration
+│     ├── /node_modules/           # imported node modules
+│     ├── /src/                    # The frontend source code (modules, componensts, models, directives, services etc.) of the application
+│     ├── /static/                  # Static assets (images, dependencies loaded directly by html
+│     ├── /test/                    # Client side tests
+│     ├── /.babelrc/                # Transpiler config
 │     ├── .editorconfig             # Define and maintain consistent coding styles between different editors and IDEs
-│     ├── .gitignore                # Contains ui files to be ignored when pushing to git
+│     ├── .eslintignore             # Files to not lint
+│     ├── .postcssrc                # Post CSS config
+│     ├── index.html                # Page index  
 │     ├── package.json              # Holds various metadata configuration relevant to the ui
-│     ├── README.md                 # Contains all user guide details for the ui
-│     └── yarn.lock                 # Yarn lock file
-├── .gitignore                      # Contains files to be ignored when pushing to git
+│     ├── package-lock.json         # Dependency version lock
+│     └── README.md                 # Contains ui build command instructions├── .gitignore                      # Contains files to be ignored when pushing to git
 ├── build.sbt                       # Play application build script
 ├── LICENSE                         # Contains License Agreement file
 ├── README.md                       # Contains all user guide details for the application
@@ -88,7 +93,7 @@ Read more @ http://bit.ly/2A1AzEq
 
 ### FrontendRunHook.scala
 
-* Represents PlayRunHook scala implementation to trigger react start with sbt run command.
+* Represents PlayRunHook scala implementation to trigger npm start with sbt run command.
 
 ```
     ├── /project/
@@ -129,7 +134,7 @@ GET        /             controllers.Assets.at(path="/public", file="index.html"
 GET        /*file        controllers.Assets.at(path="/public", file)
 ```
 
-**Note: _On production build all the front end React build artifacts will be copied to the `public` folder._**
+**Note: _On production build all the front end Vue build artifacts will be copied to the `public` folder._**
 
 ## Can be used to implement any front end/ui build!
 
@@ -143,12 +148,13 @@ GET        /*file        controllers.Assets.at(path="/public", file)
 * [Scala Play Angular Seed](https://github.com/yohangz/scala-play-angular-seed)
 * [Java Play Angular Seed](https://github.com/yohangz/java-play-angular-seed)
 * [Scala Play Vuejs Seed](https://github.com/duncannevin/scala-play-vue-seed) by [Duncan Nevin](https://github.com/duncannevin)
+* [Java Play Vuejs Seed](https://github.com/duncannevin/java-play-vue-seed) by [Duncan Nevin](https://github.com/duncannevin)
 
 ## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-|[<img src="https://avatars2.githubusercontent.com/u/5279079?s=400&v=4" width="100px;"/><br /><sub>Yohan Gomez</sub>][yohan-profile]| [<img src="https://avatars2.githubusercontent.com/u/6312524?s=400&u=efc9267c6f903c379fafaaf7b3b0d9a939474c01&v=4" width="100px;"/><br /><sub>Lahiru Jayamanna</sub>][lahiru-profile]<br />| [<img src="https://avatars0.githubusercontent.com/u/3881403?s=400&v=4" width="100px;"/><br /><sub>Gayan Attygalla</sub>](https://github.com/Arty26)|
-| :---: | :---: | :---: |
+|[<img src="https://avatars2.githubusercontent.com/u/5279079?s=400&v=4" width="100px;"/><br /><sub>Yohan Gomez</sub>][yohan-profile]| [<img src="https://avatars2.githubusercontent.com/u/6312524?s=400&u=efc9267c6f903c379fafaaf7b3b0d9a939474c01&v=4" width="100px;"/><br /><sub>Lahiru Jayamanna</sub>][lahiru-profile]<br />| [<img src="https://avatars0.githubusercontent.com/u/3881403?s=400&v=4" width="100px;"/><br /><sub>Gayan Attygalla</sub>](https://github.com/Arty26)|[<img src="https://avatars2.githubusercontent.com/u/15961875?s=400&u=d620bff166db429ba9e682e9a371852eb4493390&v=4" width="100px;"/><br /><sub>Duncan Nevin</sub>][duncan-profile]|
+| :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 ## License
@@ -161,3 +167,4 @@ This software is licensed under the MIT license
 [yohan-profile]: https://github.com/yohangz
 [lahiru-profile]: https://github.com/lahiruz
 [gayan-profile]: https://github.com/Arty26
+[duncan-profile]: https://github.com/duncannevin
